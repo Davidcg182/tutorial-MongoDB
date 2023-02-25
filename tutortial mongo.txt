@@ -1,0 +1,57 @@
+1 -  creacion de carpeta y abrir con VSC
+2 - Ejecutar git init --y (para iniciar proyecto)
+3 - Instalar express (para inicializar un servidor con NODE.JS)
+4 - requerir express y guardarlo en constante
+5 - ejecutar express y guardarlo en constante
+6 - ejecutar en constante de pto 5 el metodo .listen de express y 	asignarle un puerto de ejecucion y un mensaje de consola 		de ejecucion
+7 - Crear variable para el puerto de ejecucion considerando las 	variables de entorno y el puerto local
+8 - instalar Nodemon para ejecutar los cambios realizados 	automaticamente (npm i nodemon -D)
+9 - definir SCRIPT en package JSON para ejecutar la aplicacion 	(start, dev, etc) ("start": "nodemon ./src/index.js")
+10 - verificar comando npm run start (inicializa el servidor con 	nodemon)
+11 - Definir una ruta de prueba para ver el estado del servidor
+	app.get
+12 - conectar el servidor con la base de datos mongo, instalar 	dependencia mongoose (npm i mongoose)
+13 - requerir mongoose y guardarlo en constante
+14 - utilizar la constante del pto 13 con el metodo .conect para 	inicializar la conexion (utilizar la URI key de moongose 	como primer parametro de el metodo .conect) esta key se 	obtiene de el boton conect de la seccion database del 	proyecto en mongo DB (page web)
+15 - Proteger la key de la conexion en variable de entorno 	(instalar package dotenv con npm i dotenv)
+16 - requerir y ejecutar dotenv y ejecutar su metodo .config
+17 - Crear archivo .env en la carpeta raiz del proyecto, crear la 	variable de entorno y asignarle el valor de la clave 	proporcionada por mongo DB para el acceso.
+18 - colocar la variable de entorno del pto 17 como primer 	parametro del 	metodo .conect de mongoose (este metodo 	devuelve una promesa)
+19 - Verificar la conexion concatenando al metodo . conect el 	metodo .then y pasarle a este ultimo un callback como 	primer parametro que ejecute un console log verificando la 	conexion; concatenar de igual manera un .catch para la 	verificacion de errores
+20 - ejecutar npm start y verificar las conexiones del puerto y de 	la db (con los console.log se verifica)
+21 - Creacion de end-points de prueba (crear carpeta routes para 	modularizar)
+
+21.1 - crear archivo .js para el/los nuevo/s end point/s; requerir 	express y guardarlo en variable; ejecutar en esta variable 	el metodo .Routes y guardar esto en una nueva variable	(routes) que sera exportada con module.export = variable	(routes)
+21.2 - crear end point de prueba (router.post ... res.send('texto 	plano')
+
+22 - creacion de midelware en index.js (para la ejecucion de los 	endpoint (routes)), requerir routes de archivo users 	(require('./routes/user.js) (app.use('/ruta', variable 	requerida)
+
+23 - verificar funcionamiento con postman o extension de VSC REST 	client
+24 - Creacion de modelos de datos o esquema de datos (llamados asi 	en mongoose), crear carpeta models para modularizar los 	esquemas creados
+24.1 - Crear archivo .js en carpeta models, requerir mongoose y 	guardarlo en variable
+24.2 - ejecutar el metodo .schema en la variable del pto 24.1 y 	guardar esto en una nueva variable; para como parametro de 	este metodo un objeto con cada elemento que debe tener el 	item creado (ejemplo , nombre, edad, etc)y a cada item 	(que es un objeto) pasar el type, required; exportar esta 		variable (module.exports = variable pto 24.1 .model	('user', variable 24.2))
+
+25 - requerir variable 24.2 en archivo de carpeta routes (en donde 	esta la ruta de creacion de usuario o metodo .post)
+
+26 - crear un nuevo usuario con la variable del pto 25 pasandole 	por parametro req.body de la ruta post; guardar esto en 	una nueva variable y en esta ejecutar el metodo .save de 	mongoose y sobre este concatenar el metodo .then (ya que 	devuelve una promesa) y pasar por parametro de este un 	res.send que verifique la creacion de usuario; pasar 	metodo .catch para verificacion de errores
+27 - crear en los midelware (en primer lugar) app.use	(express.json()) para que las peticiones reconozcan los 	archivos JSON como javascript
+28 -  verificar con postman o rest client la creacion de usuario
+29 - verificar en la db de mongo la creacion de usuario
+
+
+{
+    "name": "lulu",
+    "age": 6,
+    "email": "lululu@YAHOO.ES"
+}
+
+
+{
+    "actividad": "natacion",
+    "color": "blanco, azul, amarillo, negro",
+    "imagen1": "imagen",
+    "marca": "adidas",
+    "modelo": "unicos",
+    "precio": 11000,
+    "talles": 11
+}
